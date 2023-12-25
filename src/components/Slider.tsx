@@ -56,13 +56,12 @@ export const RangeSlider = ({ min, max, steps, title, contextValue }: Props) => 
         <span>{title} :</span>
         <span>
           <DebounceInput
-            type={"text"}
-            placeholder={sliderValue ? sliderValue.toString() : '0'}
+            type="number"
             className="txtPrimary bg-transparent w-10"
             minLength={min}
             max={max}
             value={sliderValue}
-            debounceTimeout={String(sliderValue).includes(".") ? 400 : 200}
+            debounceTimeout={300}
             onChange={(event: any) => setSliderValue(event.target.value as number)}
           />
         </span>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import { useSliderChart } from "@/contexts/SliderChartContext";
+import { log } from 'console';
 
 export default function ChartRender() {
     Chart.register(...registerables);
@@ -13,33 +14,35 @@ export default function ChartRender() {
         let currentVal = 0;
       
         handleTimeSpan(timeSpan).forEach(() => {
-          const pushValue = currentVal + incrementAmount;
+          const pushValue = Number(currentVal) + Number(incrementAmount);
           dataPoints.push(pushValue);
           currentVal = pushValue;
         });
       
         // Shuffle the array using Fisher-Yates algorithm
-        for (let i = dataPoints.length - 1; i > 0; i--) {
+        /* for (let i = dataPoints.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          [dataPoints[i], dataPoints[j]] = [dataPoints[j], dataPoints[i]];
+          [dataPoints[i] as number, dataPoints[j]as number] = [dataPoints[j] as number, dataPoints[i] as number];
         }
-        console.log("not shuffled",dataPoints);
+        console.log("not shuffled",dataPoints ); */
       
         // Calculate cumulative sum
-        dataPoints.reduce((acc, value, index) => {
+        /* dataPoints.reduce((acc, value, index) => {
           dataPoints[index] = acc + value;
           return acc + value;
-        }, 0);
-      console.log("shuffled",dataPoints);
+        }, 0);*/
+      console.log("shuffled",dataPoints); 
         return dataPoints;
       };
     
-const handleTimeSpan: (timeSpan: number) => Array<string> = (timeSpan:number) =>{
-    let data = [] 
-    for (let index = 1; index < timeSpan+1; index++) {
-        data.push(index.toString())
+const handleTimeSpan: (timeSpan: number) => Array<number> = (timeSpan:number) =>{
+    let data:Array<number> = [] 
+    
+    for (let index = 1; index < Number(timeSpan)+1; index++) {
+        data.push(index)
     }
-    return data as Array<string>
+    console.log("data",data)
+    return data as Array<number>
 }
 
 const data = {
