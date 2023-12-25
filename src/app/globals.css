@@ -1,27 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+:root {
+    /* Your default theme */
+    --bgPrimary: white;
+    --bgSecondary: #e1e1ef;
+    --bgCard:#F3F3FA;
+    --txtPrimary:#000000;
+    --txtSecondary:#8E8E93;
+    --blue: #0000FF;
+    --blueTxt: #0000ff;
+    --tableBgSecondary:rgba(178, 178, 200, 0.25);
+
+    
+  }
+  
+  [data-theme='dark'] {
+    --bgPrimary: #121212;
+    --bgSecondary: #000000;
+    --bgCard:#1f1f1f;
+    --txtPrimary:#e5e5ea;
+    --txtSeondary: #E5E5EA;
+    --blue:rgba(0, 0, 255, 0.75);
+    --blueTxt:white;
+    --tableBgSecondary:#1F1F1F;
+  }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
