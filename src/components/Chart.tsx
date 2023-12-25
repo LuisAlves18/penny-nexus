@@ -20,18 +20,16 @@ export default function ChartRender() {
         });
       
         // Shuffle the array using Fisher-Yates algorithm
-        /* for (let i = dataPoints.length - 1; i > 0; i--) {
+        for (let i = dataPoints.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [dataPoints[i] as number, dataPoints[j]as number] = [dataPoints[j] as number, dataPoints[i] as number];
         }
-        console.log("not shuffled",dataPoints ); */
       
         // Calculate cumulative sum
-        /* dataPoints.reduce((acc, value, index) => {
+        dataPoints.reduce((acc, value, index) => {
           dataPoints[index] = acc + value;
           return acc + value;
-        }, 0);*/
-      console.log("shuffled",dataPoints); 
+        }, 0);
         return dataPoints;
       };
     
